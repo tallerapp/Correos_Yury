@@ -13,6 +13,14 @@ def autentificar_usuarios(rut,passwd):
     result = cursor.fetchone()
 
     if result:
-        print("¡Inicio de sesión exitoso!")
+        print("te logeaste correctamente")
     else:
-        print("Usuario no encontrado o contraseña incorrecta.")
+        return  print("Rut o contraseña incorrectos")
+
+def PerfilUsuario(rut):
+    sql = "SELECT perfil FROM empleados WHERE rut = %s"
+    val = (rut)
+    cursor.execute(sql, (val ,))
+    perfil = cursor.fetchone()
+    perfilEmpleado = perfil[0]
+    return perfilEmpleado;
