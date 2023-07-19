@@ -1,4 +1,5 @@
 import login
+import rrhh
 print("inicia sessión")
 rut= input("ingresa tu rut");
 passwd = input("ingresa tu contraseña")
@@ -22,7 +23,17 @@ if login.PerfilUsuario(rut) == "RRHH":
           2.-Crear ficha del trabajador
           3.-salir
           """)
-    opcion = input("Ingrese su opción(1,2,3)")
+    opcion = int(input("Ingrese su opción(1,2,3)"))
+    if opcion == 1:
+        print("opcion 1")
+    elif opcion == 2:
+        rrhh.registrarUsuario();
+    elif opcion == 3:
+        print("opcion 3")
+    else:
+        print("Opcion no disponible")
+        
+    
     
 if login.PerfilUsuario(rut) == "JFRRHH":
      print("""¿Que desea hacer?
