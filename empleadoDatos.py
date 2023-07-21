@@ -19,7 +19,7 @@ def opcionnes(rut):
         nombre = rrhh.validarCampo("Ingresa tu nuevo nombre");
         cambiarNombre(nombre,rut)
     elif opcionnes == 2:
-        sexo = rrhh.validarCampo("Ingresa tu Sexo (M/F)", opciones_validas=["M", "F"])
+        sexo = rrhh.validarCampo("Ingresa tu Sexo (M/F)", opciones_validas=["M", "F"]).upper()
         cambiarSexo(sexo,rut)
     elif opcionnes == 3:
         direccion = rrhh.validarCampo("Ingresa tu nueva direccion")
