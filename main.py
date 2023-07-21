@@ -1,8 +1,8 @@
 import login
 import rrhh
 print("inicia sessión")
-rut= input("ingresa tu rut");
-passwd = input("ingresa tu contraseña")
+rut= rrhh.validarCampo("ingresa tu rut");
+passwd = rrhh.validarCampo("ingresa tu contraseña");
 
 login.autentificar_usuarios(rut,passwd);
 
