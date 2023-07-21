@@ -26,7 +26,7 @@ if login.PerfilUsuario(rut) == "EMPLEADO":
           5.-Modificar Datos Personales
           6.-Salir
           """)
-    opcion = int(input("Ingrese su opción(1,2,3,4,5,6)"))
+    opcion = int(rrhh.validarCampo("Ingrese su opción", opciones_validas=["1","2","3","4","5","6"]))
     if opcion == 1:
         empleadoCargas.agregarCargas(rut)
     elif opcion == 2:
@@ -48,7 +48,7 @@ if login.PerfilUsuario(rut) == "RRHH":
           2.-Crear ficha del trabajador
           3.-salir
           """)
-    opcion = int(input("Ingrese su opción(1,2,3)"))
+    opcion =  int(rrhh.validarCampo("Ingrese su opción", opciones_validas=["1","2","3"]))
     if opcion == 1:
         resumen.tabla();
     elif opcion == 2:
@@ -68,7 +68,7 @@ if login.PerfilUsuario(rut) == "JFRRHH":
           4.-Filtrar trabajadores por Area y departamento
           5.-Salir
           """)
-    opcion = int(input("Ingrese su opción(1,2,3)"))
+    opcion =  int(rrhh.validarCampo("Ingrese su opción", opciones_validas=["1","2","3","4","5"]))
     if opcion == 1:
         resumen.tabla();
     elif opcion == 2:

@@ -13,7 +13,7 @@ def agregarCargas(rut):
         while True:
             nombre_carga = rrhh.validarCampo("Nombre de la carga familiar: ")
             parentesco = rrhh.validarCampo("Parentesco con el empleado: ")
-            sexo_carga = rrhh.validarCampo("Sexo (M/F)", opciones_validas=["M", "F"])
+            sexo_carga = rrhh.validarCampo("Sexo (M/F)", opciones_validas=["M", "F"]).upper()
 
             try:
                 sql = '''

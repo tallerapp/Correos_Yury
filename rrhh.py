@@ -47,7 +47,7 @@ def registrarUsuario():
     rut = pedir_rut();
     password = validarCampo("Password: ")
     nombre_completo = validarCampo("Nombre completo: ")
-    sexo = validarCampo("Sexo (M/F)", opciones_validas=["M", "F"])
+    sexo = validarCampo("Sexo (M/F)", opciones_validas=["M", "F"]).upper()
     direccion = validarCampo("Dirección: ")
     telefono = validarCampo("Teléfono: ")
     cargo = validarCampo("Cargo: ").upper()
