@@ -31,6 +31,8 @@ if login.PerfilUsuario(rut) == "EMPLEADO":
         empleadoCargas.eliminarCargas(rut);
     elif opcion == 3:
         empleadoEmergencia.agregarContacto(rut);
+    elif opcion == 4:
+        empleadoEmergencia.eliminarContacto(rut);
     else:
         print("Opcion no disponible")
     
