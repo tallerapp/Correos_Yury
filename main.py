@@ -1,10 +1,16 @@
 import login
 import rrhh
-print("inicia sessión")
-rut= input("ingresa tu rut");
-passwd = input("ingresa tu contraseña")
+print("Inicia sesión")
 
-login.autentificar_usuarios(rut,passwd);
+while True:
+    rut = rrhh.validarCampo("Ingresa tu RUT: ")
+    passwd = rrhh.validarCampo("Ingresa tu contraseña: ")
+
+    if login.autentificar_usuarios(rut, passwd):
+        print("Te logeaste correctamente")
+        break
+    else:
+        print("RUT o contraseña incorrectos. Inténtalo nuevamente.\n")
 
 if login.PerfilUsuario(rut) == "empleado":
     print("""¿Que desea hacer?

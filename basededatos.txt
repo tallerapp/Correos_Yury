@@ -9,7 +9,7 @@ CREATE TABLE empleados (
  fecha_ingreso DATE NOT NULL,
  area VARCHAR(100) NOT NULL,
  departamento VARCHAR(100) NOT NULL,
- perfil ENUM('empleado', 'RRHH', 'JFRRHH') NOT NULL
+ perfil ENUM('EMPLEADO', 'RRHH', 'JFRRHH') NOT NULL
 );
 CREATE TABLE cargas_familiares (
  carga_id INT AUTO_INCREMENT PRIMARY KEY,
