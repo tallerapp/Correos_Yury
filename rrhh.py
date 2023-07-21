@@ -50,7 +50,7 @@ def registrarUsuario():
     sexo = validarCampo("Sexo (M/F)", opciones_validas=["M", "F"])
     direccion = validarCampo("Dirección: ")
     telefono = validarCampo("Teléfono: ")
-    cargo = validarCampo("Cargo: ")
+    cargo = validarCampo("Cargo: ").upper()
 
     # Ingresar fecha de ingreso con validación del formato
     while True:

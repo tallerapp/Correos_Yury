@@ -4,6 +4,7 @@ import resumen
 import empleadoCargas
 import empleadoEmergencia
 import empleadoDatos
+import jfrrhh
 print("Inicia sesión")
 
 while True:
@@ -60,13 +61,26 @@ if login.PerfilUsuario(rut) == "RRHH":
     
     
 if login.PerfilUsuario(rut) == "JFRRHH":
-     print("""¿Que desea hacer?
+    print("""¿Que desea hacer?
           1.-Ver tabla resumen
           2.-Filtar trabajadores por sexo
           3.-Filtrar trabajadores por Cargo
           4.-Filtrar trabajadores por Area y departamento
           5.-Salir
           """)
+    opcion = int(input("Ingrese su opción(1,2,3)"))
+    if opcion == 1:
+        resumen.tabla();
+    elif opcion == 2:
+        jfrrhh.filtrar_trabajadores_por_sexo();
+    elif opcion == 3:
+         jfrrhh.filtrar_trabajadores_por_cargo();
+    elif opcion == 4:
+         jfrrhh.filtrar_trabajadores_por_area_y_departamento();
+    elif opcion == 5:
+       print("session terminada")
+    else:
+        print("Opcion no disponible")
         
 
 
