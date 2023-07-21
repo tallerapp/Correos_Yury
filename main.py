@@ -1,6 +1,8 @@
 import login
 import rrhh
 import resumen
+import empleadoCargas
+import empleadoEmergencia
 print("Inicia sesión")
 
 while True:
@@ -13,7 +15,7 @@ while True:
     else:
         print("RUT o contraseña incorrectos. Inténtalo nuevamente.\n")
 
-if login.PerfilUsuario(rut) == "empleado":
+if login.PerfilUsuario(rut) == "EMPLEADO":
     print("""¿Que desea hacer?
           1.-Agregar cargas familiares
           2.-Eliminar cargas familiares
@@ -22,7 +24,15 @@ if login.PerfilUsuario(rut) == "empleado":
           5.-Modificar Datos Personales
           6.-Salir
           """)
-    opcion = input("Ingrese su opción(1,2,3,4,5,6)")
+    opcion = int(input("Ingrese su opción(1,2,3,4,5,6)"))
+    if opcion == 1:
+        empleadoCargas.agregarCargas(rut)
+    elif opcion == 2:
+        empleadoCargas.eliminarCargas(rut);
+    elif opcion == 3:
+        empleadoEmergencia.agregarContacto(rut);
+    else:
+        print("Opcion no disponible")
     
 if login.PerfilUsuario(rut) == "RRHH":
     print("""¿Que desea hacer?
