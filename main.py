@@ -3,6 +3,7 @@ import rrhh
 import resumen
 import empleadoCargas
 import empleadoEmergencia
+import empleadoDatos
 print("Inicia sesión")
 
 while True:
@@ -33,6 +34,10 @@ if login.PerfilUsuario(rut) == "EMPLEADO":
         empleadoEmergencia.agregarContacto(rut);
     elif opcion == 4:
         empleadoEmergencia.eliminarContacto(rut);
+    elif opcion == 5:
+        empleadoDatos.opcionnes(rut)
+    elif opcion == 6:
+        print("session terminada")
     else:
         print("Opcion no disponible")
     
@@ -48,7 +53,7 @@ if login.PerfilUsuario(rut) == "RRHH":
     elif opcion == 2:
         rrhh.registrarUsuario();
     elif opcion == 3:
-        print("sesion terminada")
+        print("session terminada")
     else:
         print("Opcion no disponible")
         
