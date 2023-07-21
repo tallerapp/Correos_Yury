@@ -1,6 +1,8 @@
 import conexion
 from datetime import datetime
 import re
+import empleadoCargas
+import empleadoEmergencia
 
 def cerrar_conexion(database, cursor):
     if cursor:
@@ -77,49 +79,9 @@ def registrarUsuario():
         print("Error al insertar datos en la tabla empleados:", err)
         cerrar_conexion(database, cursor)
         return
-     # Preguntar al usuario si tiene cargas familiares
-    tiene_cargas = validarCampo("¿Tiene cargas familiares? (S/N): ").upper()
-    if tiene_cargas == "S":
-        while True:
-            nombre_carga = validarCampo("Nombre de la carga familiar: ")
-            parentesco = validarCampo("Parentesco con el empleado: ")
-            sexo_carga = validarCampo("Sexo (M/F)", opciones_validas=["M", "F"])
+    empleadoCargas.agregarCargas(rut);
+    empleadoEmergencia.agregarContacto(rut);
 
-            try:
-                sql = '''
-                    INSERT INTO cargas_familiares (rut_empleado, nombre_carga, parentesco, sexo)
-                    VALUES (%s, %s, %s, %s)
-                '''
-                values = (rut, nombre_carga, parentesco, sexo_carga)
-                cursor.execute(sql, values)
-                database.commit()
-                print("Registro de carga familiar exitoso.")
-            except conexion.mysql.databaseector.Error as err:
-                print("Error al insertar datos en la tabla cargas_familiares:", err)
-
-            seguir_agregando = validarCampo("¿Desea agregar otra carga familiar? (S/N): ").upper()
-            if seguir_agregando != "S":
-                break
-
-    
-     # Inserción de datos en la tabla contactos_emergencia
-    try:
-        nombre_contacto = validarCampo("Nombre del contacto de emergencia: ")
-        relacion = validarCampo("Relación con el empleado: (Familiar, tutor , amistad)", opciones_validas=["FAMILIAR", "TUTOR", "AMISTAD"]).upper()
-        telefono_contacto = validarCampo("Teléfono del contacto de emergencia: ")
-
-        sql = '''
-            INSERT INTO contactos_emergencia (rut_empleado, nombre_contacto, relacion, telefono)
-            VALUES (%s, %s, %s, %s)
-        '''
-        values = (rut, nombre_contacto, relacion, telefono_contacto)
-        cursor.execute(sql, values)
-        database.commit()
-        print("Registro de contacto de emergencia exitoso.")
-    except conexion.mysql.connector.Error as err:
-        print("Error al insertar datos en la tabla contactos_emergencia:", err)
-
-    cerrar_conexion(database, cursor)
 
    
 
