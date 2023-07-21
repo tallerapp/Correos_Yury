@@ -1,5 +1,6 @@
 import login
 import rrhh
+import resumen
 print("Inicia sesión")
 
 while True:
@@ -31,11 +32,11 @@ if login.PerfilUsuario(rut) == "RRHH":
           """)
     opcion = int(input("Ingrese su opción(1,2,3)"))
     if opcion == 1:
-        print("opcion 1")
+        resumen.tabla();
     elif opcion == 2:
         rrhh.registrarUsuario();
     elif opcion == 3:
-        print("opcion 3")
+        print("sesion terminada")
     else:
         print("Opcion no disponible")
         
