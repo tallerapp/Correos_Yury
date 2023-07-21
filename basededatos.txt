@@ -9,7 +9,7 @@ CREATE TABLE empleados (
  fecha_ingreso DATE NOT NULL,
  area VARCHAR(100) NOT NULL,
  departamento VARCHAR(100) NOT NULL,
- perfil ENUM('empleado', 'RRHH', 'JFRRHH') NOT NULL
+ perfil ENUM('EMPLEADO', 'RRHH', 'JFRRHH') NOT NULL
 );
 CREATE TABLE cargas_familiares (
  carga_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -27,3 +27,12 @@ CREATE TABLE contactos_emergencia (
  telefono VARCHAR(20) NOT NULL,
  FOREIGN KEY (rut_empleado) REFERENCES empleados(rut)
 );
+
+usuario admin para crear otros usuarios
+INSERT INTO empleados (rut, password, nombre_completo, sexo, direccion, telefono, cargo, fecha_ingreso, area, departamento, perfil)
+VALUES ('1234567890', 'admin123', 'Admin Admin', 'M', 'Calle Principal 123', '1234567890', 'Administrador', '2023-07-06', 'Recursos Humanos', 'RRHH', 'RRHH');
+
+INSERT INTO contactos_emergencia (rut_empleado, nombre_contacto, relacion, telefono)
+VALUES ('1234567890', 'Contacto de Emergencia', 'Familiar', '9876543210');
+
+
